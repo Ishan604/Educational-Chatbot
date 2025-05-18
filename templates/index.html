@@ -1,0 +1,128 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot UI</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box">
+            <div class="bot-message">
+                <p>Your Education Counselor 🤖</p>
+            </div>
+        </div>
+        <input type="text" id="user-input" placeholder="Hi there, What's on your mind...?" onkeydown="if(event.key === 'Enter'){sendMessage()}">
+        <button onclick="sendMessage()">Send</button>
+    </div>
+    <script>
+        function sendMessage() {
+            let userInput = document.getElementById("user-input").value;
+            if (userInput.trim() === "") return;
+
+            let chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML += `<div class="user-message"><p>You: ${userInput}</p></div>`;
+            document.getElementById("user-input").value = "";
+
+            fetch(`/get?msg=${userInput}`)
+                .then(response => response.json())
+                .then(data => {
+                    chatBox.innerHTML += `<div class="bot-message"><p>Sam: ${data.response}</p></div>`;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                });
+        }
+    </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Education Counselor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Typing animation */
+        .typing-animation {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: 3px solid white;
+            animation: typing 3s steps(30, end), blink 0.75s step-end infinite;
+            font-size: 2rem;
+            font-weight: bold;
+            color: #fff;
+        }
+
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        @keyframes blink {
+            from, to { border-color: transparent }
+            50% { border-color: white; }
+        }
+
+        /* Zoom-in animation */
+        .chat-container {
+            animation: zoomIn 0.6s ease-out;
+        }
+
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body onload="focusInput()">
+    <div class="chat-container">
+        <div class="chat-header">
+            <span class="typing-animation">Your Education Counselor</span>
+        </div>
+        <div class="chat-box" id="chat-box">
+            <div class="bot-message">
+                <p>Hello! Ask me anything about your education path 🎓</p>
+            </div>
+        </div>
+        <div class="input-area">
+            <input type="text" id="user-input" placeholder="Hi there, what's on your mind...?" onkeydown="if(event.key === 'Enter'){sendMessage()}" autofocus>
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        function focusInput() {
+            document.getElementById("user-input").focus();
+        }
+
+        function sendMessage() {
+            let userInput = document.getElementById("user-input");
+            let message = userInput.value.trim();
+            if (message === "") return;
+
+            let chatBox = document.getElementById("chat-box");
+            chatBox.innerHTML += `<div class="user-message"><p>You: ${message}</p></div>`;
+            userInput.value = "";
+            userInput.focus();
+
+            fetch(`/get?msg=${encodeURIComponent(message)}`)
+                .then(response => response.json())
+                .then(data => {
+                    chatBox.innerHTML += `<div class="bot-message"><p>${data.response}</p></div>`;
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                });
+        }
+    </script>
+</body>
+</html>
+

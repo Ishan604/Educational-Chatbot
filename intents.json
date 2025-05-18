@@ -1,0 +1,259 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": [
+                "Hi",
+                "Hello",
+                "Hey",
+                "How are you?",
+                "Good day",
+                "Greetings"
+            ],
+            "responses": [
+                "Hello! Welcome to the Education Council. How can I assist you today?",
+                "Hi there! How can I help you with your education?",
+                "Hey, how can I assist you with your educational needs today?"
+            ]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": [
+                "Bye",
+                "Goodbye",
+                "See you later",
+                "Take care"
+            ],
+            "responses": [
+                "Goodbye! Feel free to return if you have more questions.",
+                "See you later! If you need further assistance, don't hesitate to ask.",
+                "Bye! Take care of yourself and your studies."
+            ]
+        },
+        {
+            "tag": "thanks",
+            "patterns": [
+                "Thanks",
+                "Thank you",
+                "I appreciate it",
+                "Thanks a lot"
+            ],
+            "responses": [
+                "You're welcome!",
+                "No problem!",
+                "Glad I could assist you with your education!"
+            ]
+        },
+        {
+            "tag": "help",
+            "patterns": [
+                "Help",
+                "Can you help me?",
+                "I need assistance"
+            ],
+            "responses": [
+                "Sure, I'm here to help. What do you need assistance with regarding your education?",
+                "Of course! Just let me know how I can assist you with your studies.",
+                "Absolutely, tell me what you need help with regarding your education."
+            ]
+        },
+        {
+            "tag": "about",
+            "patterns": [
+                "Tell me about the Education Council",
+                "What is the Education Council?",
+                "Can you provide information about the Education Council?"
+            ],
+            "responses": [
+                "The Education Council is dedicated to providing guidance and support to students, parents, and educators. We offer resources, advice, and information on various educational topics such as academic planning, career guidance, and educational policies."
+            ]
+        },
+        {
+            "tag": "academic_planning",
+            "patterns": [
+                "How can I plan my academic schedule?",
+                "Can you help me with academic planning?",
+                "I need assistance with course selection"
+            ],
+            "responses": [
+                "Academic planning is crucial for success in your education. You can start by evaluating your academic goals, interests, and graduation requirements. We can help guide you through course selection and creating a balanced schedule."
+            ]
+        },
+        {
+            "tag": "career_guidance",
+            "patterns": [
+                "I need help with career guidance",
+                "Can you provide career advice?",
+                "How do I choose a career path?"
+            ],
+            "responses": [
+                "Career guidance is key to shaping your future. We can help you explore different career paths, identify your strengths and interests, and develop a career plan that fits your aspirations."
+            ]
+        },
+        {
+            "tag": "educational_policies",
+            "patterns": [
+                "What are the educational policies?",
+                "Can you explain educational regulations?",
+                "How do educational policies affect me?"
+            ],
+            "responses": [
+                "Educational policies are the rules and regulations that guide the education system, such as curriculum standards, assessments, and student rights. We can provide information on these policies and how they affect your academic journey."
+            ]
+        },
+        {
+            "tag": "parent_support",
+            "patterns": [
+                "How can I support my child's education?",
+                "Parental guidance for education",
+                "What can parents do to help with education?"
+            ],
+            "responses": [
+                "Parental support is vital for a child's success. We can offer advice on how to help your child with homework, stay engaged in their academic life, and communicate effectively with teachers."
+            ]
+        },
+        {
+            "tag": "student_resources",
+            "patterns": [
+                "What resources are available for students?",
+                "Can you recommend educational resources?",
+                "Where can I find helpful study materials?"
+            ],
+            "responses": [
+                "There are many resources for students, including textbooks, online tutorials, study groups, and academic support services. We can help you find the resources that best fit your needs."
+            ]
+        },
+        {
+            "tag": "financial_aid",
+            "patterns": [
+                "I need information about financial aid",
+                "Can you help me with financial aid?",
+                "How do I apply for scholarships?"
+            ],
+            "responses": [
+                "Financial aid options can make higher education more affordable. We can provide information on scholarships, grants, loans, and work-study programs. Let us guide you through the application process."
+            ]
+        },
+        {
+            "tag": "test_prep",
+            "patterns": [
+                "Do you have test preparation resources?",
+                "Can you help me prepare for exams?",
+                "How do I study for standardized tests?"
+            ],
+            "responses": [
+                "We offer resources and strategies to help you prepare for standardized tests like the SAT, ACT, GRE, and TOEFL. Whether you need study guides, practice tests, or tutoring services, we can assist."
+            ]
+        },
+        {
+            "tag": "online_learning",
+            "patterns": [
+                "I need assistance with online learning",
+                "Can you provide tips for online classes?",
+                "How do I stay motivated while learning online?"
+            ],
+            "responses": [
+                "Online learning can be challenging. We can provide tips on how to manage time effectively, stay motivated, and succeed in virtual classrooms."
+            ]
+        },
+        {
+            "tag": "choose_major_career_path",
+            "patterns": [
+                "How can I choose the right major or career path?",
+                "What major or career path should I choose?"
+            ],
+            "responses": [
+                "Choosing the right major or career path can be a big decision. We can help you explore your interests and skills to determine the best fit for your future."
+            ]
+        },
+        {
+            "tag": "study_skills",
+            "patterns": [
+                "Do you have any tips for improving my study skills?",
+                "How can I improve my study skills?"
+            ],
+            "responses": [
+                "Improving study skills involves techniques like active learning, time management, and effective note-taking. We can help you develop strategies to improve your academic performance."
+            ]
+        },
+        {
+            "tag": "improve_gpa",
+            "patterns": [
+                "How can I improve my GPA?",
+                "How to raise my GPA?"
+            ],
+            "responses": [
+                "Improving your GPA requires focus, time management, and effective study habits. We can guide you in identifying areas for improvement and creating a plan to raise your GPA."
+            ]
+        },
+        {
+            "tag": "unknown",
+            "patterns": [
+                "I don't understand",
+                "Can you help me?",
+                "What do you mean?",
+                "Huh?",
+                "Sorry, what?"
+            ],
+            "responses": [
+                "I do not understand...",
+                "Sorry, I didn\u00e2\u20ac\u2122t get that. Could you rephrase?",
+                "I\u00e2\u20ac\u2122m not sure I understand, can you explain?"
+            ]
+        },
+        {
+            "tag": "know_name",
+            "patterns": [
+                "know name"
+            ],
+            "responses": [
+                "Actually we don't have any information about you!"
+            ]
+        },
+        {
+            "tag": "'s_weather_today",
+            "patterns": [
+                "'s weather today"
+            ],
+            "responses": [
+                "Actually we don't have any weather information. This is an Educational chat bot!"
+            ]
+        },
+        {
+            "tag": "score_last_rcb_v_kkr_match",
+            "patterns": [
+                "score last rcb v kkr match"
+            ],
+            "responses": [
+                "This is an Educational Chat Bot. Don't have any information about IPL!"
+            ]
+        },
+        {
+            "tag": "school",
+            "patterns": [
+                "school"
+            ],
+            "responses": [
+                "We don't have any information about you!"
+            ]
+        },
+        {
+            "tag": "current_usd_dolar_rate_srilanka",
+            "patterns": [
+                "current usd dolar rate srilanka"
+            ],
+            "responses": [
+                "It is 300 Sri Lankan Rupees "
+            ]
+        },
+        {
+            "tag": "many_province_sri_lanka",
+            "patterns": [
+                "many province sri lanka"
+            ],
+            "responses": [
+                "9 Provinces and 25 Districts "
+            ]
+        }
+    ]
+}

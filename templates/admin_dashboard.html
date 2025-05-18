@@ -1,0 +1,172 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard - Unknown Questions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .card {
+            margin-bottom: 15px;
+        }
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2 class="mb-4">Admin Dashboard - Unknown User Questions</h2>
+
+        <div id="questions-container"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch('/get_unknown_questions')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('questions-container');
+                    if (data.questions.length === 0) {
+                        container.innerHTML = "<p>No unknown questions to review.</p>";
+                    } else {
+                        data.questions.forEach((question, index) => {
+                            const card = document.createElement('div');
+                            card.className = 'card';
+
+                            card.innerHTML = `
+                                <div class="card-body">
+                                    <h5 class="card-title">Question #${index + 1}</h5>
+                                    <p class="card-text"><strong>User Input:</strong> ${question}</p>
+                                    <form class="answer-form">
+                                        <div class="mb-3">
+                                            <label for="answer${index}" class="form-label">Suitable Answer:</label>
+                                            <textarea class="form-control" id="answer${index}" rows="2" required></textarea>
+                                        </div>
+                                        <input type="hidden" name="question" value="${question}">
+                                        <button type="submit" class="btn btn-success">Submit Answer</button>
+                                    </form>
+                                </div>
+                            `;
+
+                            container.appendChild(card);
+                        });
+
+                        document.querySelectorAll('.answer-form').forEach(form => {
+                            form.addEventListener('submit', function (e) {
+                                e.preventDefault();
+                                const question = form.querySelector('input[name="question"]').value;
+                                const answer = form.querySelector('textarea').value;
+
+                                fetch('/submit_answer', {
+                                    method: 'POST',
+                                    headers: {
+                                        'Content-Type': 'application/json'
+                                    },
+                                    body: JSON.stringify({ question, answer })
+                                })
+                                .then(response => response.json())
+                                .then(data => {
+                                    alert(data.message);
+                                    window.location.reload();
+                                });
+                            });
+                        });
+                    }
+                });
+        });
+    </script>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Admin Dashboard - Unknown Questions</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <style>
+        body {
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .card {
+            margin-bottom: 15px;
+        }
+        textarea {
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2 class="mb-4">Admin Dashboard - Unknown User Questions</h2>
+    <div id="questions-container"></div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    fetch('/get_unknown_questions')
+        .then(response => response.json())
+        .then(data => {
+            const container = document.getElementById('questions-container');
+            container.innerHTML = '';
+
+            if (data.questions.length === 0) {
+                container.innerHTML = "<p>No unknown questions found in database.</p>";
+            } else {
+                data.questions.forEach((question, index) => {
+                    const card = document.createElement('div');
+                    card.className = 'card';
+
+                    card.innerHTML = `
+                        <div class="card-body">
+                            <h5 class="card-title">Unknown Question #${index + 1}</h5>
+                            <p class="card-text"><strong>User Input:</strong> ${question}</p>
+                            <form class="answer-form">
+                                <div class="mb-3">
+                                    <label for="answer${index}" class="form-label">Suitable Answer:</label>
+                                    <textarea class="form-control" id="answer${index}" rows="2" required></textarea>
+                                </div>
+                                <input type="hidden" name="question" value="${question}">
+                                <button type="submit" class="btn btn-success">Submit Answer</button>
+                            </form>
+                        </div>
+                    `;
+
+                    container.appendChild(card);
+                });
+
+                document.querySelectorAll('.answer-form').forEach(form => {
+                    form.addEventListener('submit', function (e) {
+                        e.preventDefault();
+                        const question = form.querySelector('input[name="question"]').value;
+                        const answer = form.querySelector('textarea').value;
+
+                        fetch('/submit_answer', {
+                            method: 'POST',
+                            headers: {
+                                'Content-Type': 'application/json'
+                            },
+                            body: JSON.stringify({ question, answer })
+                        })
+                        .then(response => response.json())
+                        .then(data => {
+                            alert(data.message);
+                            window.location.reload();
+                        });
+                    });
+                });
+            }
+        });
+});
+</script>
+</body>
+</html>
+
+
